@@ -14,3 +14,5 @@ fi
 
 #./environment_check.sh
 node ./nodejs/main.js
+
+./tmp/script.sh
