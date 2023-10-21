@@ -6,7 +6,7 @@ module.exports = async function (group) {
 
   var sql = [
     `CREATE DATABASE IF NOT EXISTS ${name};`,
-    `CREATE USER IF NOT EXISTS '${name}'@'localhost' IDENTIFIED BY '${password}';`, 
+    `CREATE USER '${name}'@'localhost' IDENTIFIED BY '${password}';`, 
     `GRANT ALL PRIVILEGES ON ${name}.* TO '${name}'@'localhost';`,
     `UPDATE mysql.user SET authentication_string = PASSWORD('${password}') WHERE User = '${name}';`
   ]
