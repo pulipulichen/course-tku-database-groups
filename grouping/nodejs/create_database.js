@@ -1,4 +1,4 @@
-const shell_spawn_sql = require('./shell_spawn_sql.js');
+// const shell_spawn_sql = require('./shell_spawn_sql.js');
 
 module.exports = async function (group) {
 
@@ -6,7 +6,7 @@ module.exports = async function (group) {
 
   var sql = [
     `CREATE DATABASE IF NOT EXISTS ${name};`,
-    `DROP USER IF EXISTS '${name}'@'localhost';`,
+    `DROP USER '${name}'@'localhost';`,
     `CREATE USER '${name}'@'localhost' IDENTIFIED BY '${password}';`, 
     `GRANT ALL PRIVILEGES ON ${name}.* TO '${name}'@'localhost';`
   ]

@@ -29,7 +29,7 @@ cd "$(dirname "$0")"
 
 ${outputScript.join('\n\n')}
 
-mysql -u ${CONFIG.MYSQL_USER} -p'${CONFIG.MYSQL_PASSWORD}' < script.sql`, 'utf-8')
+mysql -u ${CONFIG.MYSQL_USER} -p'${CONFIG.MYSQL_PASSWORD}' -f < script.sql`, 'utf-8')
   fs.chmodSync(scriptPath, 0o755)
 
   fs.writeFileSync(sqlPath, outputSQL.join('\n\n'), 'utf-8')
