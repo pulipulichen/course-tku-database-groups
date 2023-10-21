@@ -1,22 +1,32 @@
+const CONFIG = require('./load_config.js')
+const hashPW = require('./hash_pw.js')
 
-for (let i = 1; i <= CONFIG.GROUP_NUMBER; i++) {
-  for (let i = 1; i <= number; i++) {
-    let groupID = i
-    if (groupID < 10) {
-      groupID = '0' + groupID
-    }
-    let groupNameA = `${year}dba${groupID}`
-    let groupPasswordA = hashPW(groupNameA)
-    let groupNameB = `${year}dbb${groupID}`
-    let groupPasswordB = hashPW(groupNameB)
-
-    output.push([
-      i,
-      groupNameA,
-      groupPasswordA,
-      i,
-      groupNameB,
-      groupPasswordB
-    ])
+let output = []
+for (let c = 0; c < 2; c++) {
+  let baseC = 'a'
+  if (c === 1) {
+    baseC = 'b'
   }
+
+  for (let i = 1; i <= CONFIG.GROUP_NUMBER; i++) {
+    for (let i = 1; i <= number; i++) {
+      let groupID = i
+      if (groupID < 10) {
+        groupID = '0' + groupID
+      }
+      let groupPrefix = `${year}db${baseC}`
+      let groupName = `${groupPrefix}${groupID}`
+      let groupPassword = hashPW(groupName)
+      let homePath = `${CONFIG.BASE_DIR}/${groupPrefix}`
+
+      output.push({
+        name: groupName,
+        password: groupPassword,
+        homePath: homePath
+      })
+    }
+  }
+
 }
+
+module.exports = output
