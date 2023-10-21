@@ -1,6 +1,8 @@
 const shell_spawn_script = require('./shell_spawn_script.js');
 
-module.exports = async function (homePath, name, password) {
+module.exports = async function (group) {
+
+  let {homePath, name, password} = group
 
   let cmd = [
     `mkdir -p ${homePath}`,
