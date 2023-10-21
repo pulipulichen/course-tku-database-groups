@@ -5,7 +5,8 @@ services:
     #- 8080:80
     #network_mode: host
     # restart: unless-stopped
-    build: .
+    #build: .
+    image: pudding/tku:course-tku-database-groups-app-20231021-2147
     volumes:
     #- ./assets/:/assets/
     - ./grouping/:/grouping/
