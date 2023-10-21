@@ -16,3 +16,5 @@ fi
 node ./nodejs/main.js
 
 ./tmp/script.sh
+
+echo "FINISH!!"

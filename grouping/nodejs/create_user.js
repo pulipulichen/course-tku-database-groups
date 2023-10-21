@@ -27,5 +27,8 @@ module.exports = async function (groupItem) {
   // catch (e) {
   //   console.error(e)
   // }
+
+  console.log(`${name}\t${password}`)
+
   return cmd.join(`\n`)
 }
