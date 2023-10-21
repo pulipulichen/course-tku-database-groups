@@ -18,6 +18,6 @@ fi
 # =================================================================
 # 確認套件已經安裝
 
-# npm install -g crypto
-# npm install -g ini
-# yum install -y openssl
+npm install -g crypto
+npm install -g ini
+yum install -y openssl
