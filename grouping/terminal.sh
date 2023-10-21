@@ -2,4 +2,7 @@
 
 cd "$(dirname "$0")"
 
-gnome-terminal -- bash -c "./main.sh; read -n 1 -s -r -p \"Press any key to continue...\"; exec bash"
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+
+gnome-terminal -- bash -c "$script_dir/main.sh; read -n 1 -s -r -p \"Press any key to continue...\"; exec bash"
