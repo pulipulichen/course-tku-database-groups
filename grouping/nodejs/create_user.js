@@ -6,8 +6,8 @@ module.exports = async function (groupItem) {
 
   var {homePath, name, group, password} = groupItem
 
-  if (fs.existsSync(homePath)) {
-    console.log(`${homePath} is existed.`)
+  if (fs.existsSync(homePath + '/index.php')) {
+    console.log(`${homePath}/index.php is existed.`)
     return true
   }
 
