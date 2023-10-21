@@ -2,9 +2,9 @@ const shell_spawn_script = require('./shell_spawn_script.js');
 const fs = require('fs')
 const path = require('path')
 
-module.exports = async function (group) {
+module.exports = async function (groupItem) {
 
-  let {homePath, name, password} = group
+  let {homePath, name, group, password} = groupItem
 
   if (fs.existsSync(homePath)) {
     console.log(`${homePath} is existed.`)
@@ -13,8 +13,18 @@ module.exports = async function (group) {
 
   let cmd = [
     `mkdir -p ${homePath}`,
-    `useradd -m -d ${homePath} -p $(echo '${password}' | openssl passwd -1 -stdin) ${name}`
+    `groupadd ${group} || true`,
+    `useradd -m -d ${homePath} -g ${group} -p $(echo '${password}' | openssl passwd -1 -stdin) ${name} || true`,
+    `chown ${name}:${group} ${homePath}`,
+    `chmod g+r+x ${homePath}`,
+    `chown :${group} ${path.resolve(homePath, '../')}`,
+    `chmod g+r+x ${path.resolve(homePath, '../')}`
   ]
 
-  await shell_spawn_script(cmd)
+  try {
+    await shell_spawn_script(cmd)
+  }
+  catch (e) {
+    console.error(e)
+  }
 }

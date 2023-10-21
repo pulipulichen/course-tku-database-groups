@@ -1,5 +1,6 @@
 const CONFIG = require('./load_config.js')
 const hashPW = require('./hash_pw.js')
+const path = require('path')
 
 let output = []
 for (let c = 0; c < 2; c++) {
@@ -16,15 +17,15 @@ for (let c = 0; c < 2; c++) {
     let groupPrefix = `${CONFIG.YEAR}db${baseC}`
     let groupName = `${groupPrefix}${groupID}`
     let groupPassword = hashPW(groupName)
-    let homePath = `${CONFIG.BASE_DIR}/${groupPrefix}`
+    let homePath = path.join(`${CONFIG.BASE_DIR}`, `${groupPrefix}/${groupName}`)
 
     output.push({
       name: groupName,
+      group: groupPrefix,
       password: groupPassword,
       homePath: homePath
     })
   }
-
 }
 
 module.exports = output
