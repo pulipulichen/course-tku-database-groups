@@ -19,13 +19,13 @@ module.exports = async function (sql) {
 
   var cmd = `mysql -u ${CONFIG.MYSQL_USER} -p'${CONFIG.MYSQL_PASSWORD}' < ${sqlPath}`
   var output = false
-  try {
-    output = await shell_spawn_script(cmd)
-    // console.log(sql)
-  }
-  catch (e) {
-    console.error(e)
-  }
+  // try {
+  //   output = await shell_spawn_script(cmd)
+  //   // console.log(sql)
+  // }
+  // catch (e) {
+  //   console.error(e)
+  // }
     
 
   fs.unlinkSync(sqlPath)

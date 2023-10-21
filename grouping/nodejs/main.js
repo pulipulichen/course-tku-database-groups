@@ -33,7 +33,7 @@ mysql -u ${CONFIG.MYSQL_USER} -p'${CONFIG.MYSQL_PASSWORD}' < script.sql`, 'utf-8
   fs.chmodSync(scriptPath, 0o755)
 
   fs.writeFileSync(sqlPath, outputSQL.join('\n\n'), 'utf-8')
-  fs.chmodSync(sqlPath, 0o755)
+  // fs.chmodSync(sqlPath, 0o755)
 }
 
 main()
