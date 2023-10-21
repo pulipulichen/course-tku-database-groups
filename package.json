@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "docker-compose run --service-ports app bash",
+    "start": "bash docker-compose.sh",
     "build": "docker-compose build",
     "up": "docker-compose up"
   }

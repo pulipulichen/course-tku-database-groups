@@ -1,0 +1,22 @@
+version: "2"
+services:
+  app:
+    #ports: 
+    #- 8080:80
+    #network_mode: host
+    # restart: unless-stopped
+    #build: .
+    image: pudding/tku:course-tku-database-groups-app-20231021-2147
+    volumes:
+    #- ./assets/:/assets/
+    - ./grouping/:/grouping/
+    # - ./conf/nginx/http-server.template:/opt/rp/nginx/rp/http-server.template
+    # - ./conf/nginx/https-server.template:/opt/rp/nginx/rp/https-server.template
+    # - ./conf/nginx/conf.template:/opt/rp/nginx/rp/conf.template
+    # - ./conf/nginx/server.template:/opt/rp/nginx/rp/server.template
+    # - ./cache/proxy:/tmp/nginx/cache/proxy
+    # - ./cache/pagespeed:/tmp/nginx/cache/pagespeed
+    # - ./conf/certbot/conf:/etc/letsencrypt
+    # - ./conf/certbot/www:/var/www/certbot
+    # - ./build/setup.js:/opt/rp/setup.js
+    # - ./runtime/:/opt/rp/nginx/rp/

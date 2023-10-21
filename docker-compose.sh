@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker run -v $(pwd)/grouping:/grouping pudding/tku:course-tku-database-groups-app-20231021-2147
+docker run -p 8080:80 -v $(pwd)/pwiki/:/var/www/html/ php:5.5.23-apache

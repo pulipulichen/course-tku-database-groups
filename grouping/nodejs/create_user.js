@@ -18,7 +18,8 @@ module.exports = async function (groupItem) {
     `chown ${name}:${group} ${homePath}`,
     `chmod g+r+x ${homePath}`,
     `chown :${group} ${path.resolve(homePath, '../')}`,
-    `chmod g+r+x ${path.resolve(homePath, '../')}`
+    `chmod g+r+x ${path.resolve(homePath, '../')}`,
+    `cp -f ${path.resolve(__dirname, '../assets/index.php')} ${homePath}`
   ]
 
   // try {
