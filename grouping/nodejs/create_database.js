@@ -8,5 +8,6 @@ module.exports = async function (group) {
     `CREATE DATABASE ${name};CREATE USER '${name}'@'localhost' IDENTIFIED BY '${password}';GRANT ALL PRIVILEGES ON ${name}.* TO '${name}'@'localhost';`
   ]
 
-  await shell_spawn_sql(sql)
+  // await shell_spawn_sql(sql)
+  return sql.join('\n')
 }

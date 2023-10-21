@@ -20,4 +20,4 @@ fi
 
 npm install -g crypto
 npm install -g ini
-yum install -y openssl
+yum install -y openssl npm

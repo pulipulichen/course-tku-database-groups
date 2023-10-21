@@ -21,10 +21,11 @@ module.exports = async function (groupItem) {
     `chmod g+r+x ${path.resolve(homePath, '../')}`
   ]
 
-  try {
-    await shell_spawn_script(cmd)
-  }
-  catch (e) {
-    console.error(e)
-  }
+  // try {
+  //   await shell_spawn_script(cmd)
+  // }
+  // catch (e) {
+  //   console.error(e)
+  // }
+  return cmd.join(`\n`)
 }

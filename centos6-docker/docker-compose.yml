@@ -1,13 +1,13 @@
 version: '3.7'
 services:
   app:
-    #ports: 
-    #- 8080:80
+    ports: 
+    - 8080:80
     #network_mode: host
     # restart: unless-stopped
     build: .
     volumes:
-    #- ./assets/:/assets/
+    - ./assets/:/assets/
     - ./grouping/:/grouping/
     # - ./conf/nginx/http-server.template:/opt/rp/nginx/rp/http-server.template
     # - ./conf/nginx/https-server.template:/opt/rp/nginx/rp/https-server.template
