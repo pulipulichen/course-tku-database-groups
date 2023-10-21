@@ -5,6 +5,14 @@ const path = require('path')
 module.exports = async function (cmdString) {
   let scriptPath = path.join(__dirname, '../tmp/shell_spawn.sh');
 
+  if (Array.isArray(cmdString)) {
+    cmdString = cmdString.join('\n')
+  }
+
+  if (cmdString.trim().startsWith('#!') === false) {
+    cmdString = '#!/bin/bash\n\n' + cmdString
+  }
+
   fs.writeFileSync(scriptPath, cmdString, 'utf-8')
 
   fs.chmodSync(scriptPath, 0o755)
