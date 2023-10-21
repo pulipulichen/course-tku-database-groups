@@ -12,5 +12,5 @@ if [ ! -e "$config_file" ]; then
   exit 1
 fi
 
-./environment_check.sh
+#./environment_check.sh
 node ./nodejs/main.js
