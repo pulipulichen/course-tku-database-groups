@@ -6,7 +6,7 @@ const path = require('path');
 const iniFilePath = path.resolve(__dirname, '../config/config.ini')
 
 // Read the INI file
-let data = fs.readFileSync(iniFilePath, 'utf-8')
+var data = fs.readFileSync(iniFilePath, 'utf-8')
     
 // Parse the INI data
 const parsedIni = ini.parse(data);

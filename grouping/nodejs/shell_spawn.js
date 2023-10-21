@@ -22,7 +22,7 @@ module.exports = function (cmdArray, stderrHandler, errorHandler) {
 
   return new Promise(function (resolve, reject) {
     
-    let job = spawn(cmdArray[0], cmdArray.slice(1), { shell: true })
+    var job = spawn(cmdArray[0], cmdArray.slice(1), { shell: true })
 
     job.stdout.on("data", data => {
         console.log(`${data}`);

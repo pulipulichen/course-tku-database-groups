@@ -4,7 +4,7 @@ const path = require('path')
 const shell_spawn_script = require('./shell_spawn_script')
 
 module.exports = async function (sql) {
-  let sqlPath = path.join(__dirname, '../tmp/script.sql');
+  var sqlPath = path.join(__dirname, '../tmp/script.sql');
 
   if (Array.isArray(sql)) {
     sql = sql.map(l => {
@@ -17,8 +17,8 @@ module.exports = async function (sql) {
 
   fs.writeFileSync(sqlPath, sql, 'utf-8')
 
-  let cmd = `mysql -u ${CONFIG.MYSQL_USER} -p'${CONFIG.MYSQL_PASSWORD}' < ${sqlPath}`
-  let output = false
+  var cmd = `mysql -u ${CONFIG.MYSQL_USER} -p'${CONFIG.MYSQL_PASSWORD}' < ${sqlPath}`
+  var output = false
   try {
     output = await shell_spawn_script(cmd)
     // console.log(sql)

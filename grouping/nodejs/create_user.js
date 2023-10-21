@@ -4,14 +4,14 @@ const path = require('path')
 
 module.exports = async function (groupItem) {
 
-  let {homePath, name, group, password} = groupItem
+  var {homePath, name, group, password} = groupItem
 
   if (fs.existsSync(homePath)) {
     console.log(`${homePath} is existed.`)
     return true
   }
 
-  let cmd = [
+  var cmd = [
     `mkdir -p ${homePath}`,
     `groupadd ${group} || true`,
     `useradd -m -d ${homePath} -g ${group} -p $(echo '${password}' | openssl passwd -1 -stdin) ${name} || true`,

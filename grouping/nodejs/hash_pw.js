@@ -30,25 +30,25 @@ function calcMD5HashNumber(md5Hash) {
 }
 
 function hashPW(input) {
-    // let lenHalf = Math.round(input.length / 2)
+    // var lenHalf = Math.round(input.length / 2)
 
-    // let part1 = input.slice(0, lenHalf)
-    // let part1Hash = calcMD5Hash(part1)
+    // var part1 = input.slice(0, lenHalf)
+    // var part1Hash = calcMD5Hash(part1)
 
-    // let part2 = input.slice(lenHalf)
-    // let part2Hash = calcMD5Hash(part2)
+    // var part2 = input.slice(lenHalf)
+    // var part2Hash = calcMD5Hash(part2)
 
     // return part1Hash.slice(0, 4) + part2Hash.slice(0, 4)
 
-    let md5 = calcMD5HashNumber(calcMD5Hash(input))
+    var md5 = calcMD5HashNumber(calcMD5Hash(input))
     // console.log({md5}) //
     
-    let output = ''
-    let inputLen = input.length
-    let md5len = md5.length
-    for (let i = 0; i < 8; i++) {
-        let pos = ((i+1) * inputLen) % md5len
-        let char = md5[pos]
+    var output = ''
+    var inputLen = input.length
+    var md5len = md5.length
+    for (var i = 0; i < 8; i++) {
+        var pos = ((i+1) * inputLen) % md5len
+        var char = md5[pos]
 
         if (i === 4) {
             output = output + '-'

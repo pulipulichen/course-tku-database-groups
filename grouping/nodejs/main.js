@@ -7,21 +7,21 @@ const create_database = require('./create_database.js')
 const fs = require('fs')
 const path = require('path')
 
-let main = async () => {
+var main = async () => {
   // console.log(GROUP_NAME_PW_PAIR)
   // return false
 
-  let outputScript = []
-  let outputSQL = []
-  for (let i = 0; i < GROUP_NAME_PW_PAIR.length; i++) {
-    let group = GROUP_NAME_PW_PAIR[i]
+  var outputScript = []
+  var outputSQL = []
+  for (var i = 0; i < GROUP_NAME_PW_PAIR.length; i++) {
+    var group = GROUP_NAME_PW_PAIR[i]
 
     outputScript.push(await create_user(group))
     outputSQL.push(await create_database(group))
   }
 
-  let scriptPath = path.join(__dirname, '../tmp/script.sh')
-  let sqlPath = path.join(__dirname, '../tmp/script.sql')
+  var scriptPath = path.join(__dirname, '../tmp/script.sh')
+  var sqlPath = path.join(__dirname, '../tmp/script.sql')
 
   fs.writeFileSync(scriptPath, `#!/bin/bash
 
