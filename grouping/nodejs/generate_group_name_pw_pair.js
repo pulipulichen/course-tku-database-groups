@@ -9,22 +9,20 @@ for (let c = 0; c < 2; c++) {
   }
 
   for (let i = 1; i <= CONFIG.GROUP_NUMBER; i++) {
-    for (let i = 1; i <= number; i++) {
-      let groupID = i
-      if (groupID < 10) {
-        groupID = '0' + groupID
-      }
-      let groupPrefix = `${year}db${baseC}`
-      let groupName = `${groupPrefix}${groupID}`
-      let groupPassword = hashPW(groupName)
-      let homePath = `${CONFIG.BASE_DIR}/${groupPrefix}`
-
-      output.push({
-        name: groupName,
-        password: groupPassword,
-        homePath: homePath
-      })
+    let groupID = i
+    if (groupID < 10) {
+      groupID = '0' + groupID
     }
+    let groupPrefix = `${CONFIG.YEAR}db${baseC}`
+    let groupName = `${groupPrefix}${groupID}`
+    let groupPassword = hashPW(groupName)
+    let homePath = `${CONFIG.BASE_DIR}/${groupPrefix}`
+
+    output.push({
+      name: groupName,
+      password: groupPassword,
+      homePath: homePath
+    })
   }
 
 }

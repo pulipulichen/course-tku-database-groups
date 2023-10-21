@@ -10,7 +10,7 @@ function calcMD5Hash(input) {
 
     // Calculate the MD5 hash as a hexadecimal string
     const md5Hex = md5Hash.digest('hex');
-    console.log(md5Hex)
+    // console.log(md5Hex)
     // const numericValue = parseInt(md5Hex, 16);
     // console.log(numericValue)
 
@@ -41,7 +41,7 @@ function hashPW(input) {
     // return part1Hash.slice(0, 4) + part2Hash.slice(0, 4)
 
     let md5 = calcMD5HashNumber(calcMD5Hash(input))
-    console.log({md5}) //
+    // console.log({md5}) //
     
     let output = ''
     let inputLen = input.length
