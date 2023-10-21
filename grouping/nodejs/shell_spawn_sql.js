@@ -20,8 +20,8 @@ module.exports = async function (sql) {
   let cmd = `mysql -u ${CONFIG.MYSQL_USER} -p'${CONFIG.MYSQL_PASSWORD}' < ${sqlPath}`
   let output = false
   try {
-    // output = await shell_spawn_script(cmd)
-    console.log(sql)
+    output = await shell_spawn_script(cmd)
+    // console.log(sql)
   }
   catch (e) {
     console.error(e)
