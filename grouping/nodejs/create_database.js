@@ -8,8 +8,7 @@ module.exports = async function (group) {
     `CREATE DATABASE IF NOT EXISTS ${name};`,
     `DROP USER '${name}'@'localhost';`,
     `CREATE USER '${name}'@'localhost' IDENTIFIED BY '${password}';`, 
-    `GRANT ALL PRIVILEGES ON ${name}.* TO '${name}'@'localhost';`,
-    `UPDATE mysql.user SET authentication_string = PASSWORD('${password}') WHERE User = '${name}';`
+    `GRANT ALL PRIVILEGES ON ${name}.* TO '${name}'@'localhost';`
   ]
 
   // await shell_spawn_sql(sql)
